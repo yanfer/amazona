@@ -33,7 +33,8 @@ function HomeScreen() {
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
       }
-      //setProducts(result.data);
+
+      // setProducts(result.data);
     };
     fetchData();
   }, []);
@@ -48,11 +49,11 @@ function HomeScreen() {
         ) : (
           products.map((product) => (
             <div className="product" key={product.slug}>
-              <Link href={`/product/${product.slug}`}>
+              <Link to={`/product/${product.slug}`}>
                 <img src={product.image} alt={product.name} />
               </Link>
               <div className="product-info">
-                <Link href={`/product/${product.slug}`}>
+                <Link to={`/product/${product.slug}`}>
                   <p>{product.name}</p>
                 </Link>
                 <p>
