@@ -1,12 +1,14 @@
-import { useEffect, useReducer, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useReducer } from 'react';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 //import logger from 'logger-for-use-reducer';
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Product from '../components/product';
-import { Helmet } from 'react-helmet-async';
-// import data from '../data';
+
+import LoadingBox from '../components/loadingBox';
+import MessageBox from '../components/messageBox';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -51,9 +53,9 @@ function HomeScreen() {
       <h1>Featured Products</h1>
       <div className="products">
         {loading ? (
-          <div>loading...</div>
+          <LoadingBox />
         ) : error ? (
-          <div>{error}</div>
+          <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
             {products.map((product) => (
