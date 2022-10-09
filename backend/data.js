@@ -20,7 +20,7 @@ const data = {
       price: 250,
       countInStock: 20,
       brand: 'Adidas',
-      rating: 4.0,
+      rating: 3.0,
       numReviews: 10,
       description: 'high quality product',
     },
