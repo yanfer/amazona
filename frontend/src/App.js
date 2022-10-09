@@ -7,10 +7,10 @@ import Badge from 'react-bootstrap/Badge';
 import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
 
-import { NoMatch } from './components/noMatch';
 import HomeScreen from './screens/homeScreen';
 import ProductScreen from './screens/productScreen';
 import { Store } from './store';
+import CartScreen from './screens/cartScreen';
 
 function App() {
   const { state } = useContext(Store);
@@ -42,8 +42,8 @@ function App() {
           <Container className="mt-3">
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
+              <Route path="/cart" element={<CartScreen />} />
               <Route path="/" element={<HomeScreen />} />
-              <Route path="*" element={<NoMatch />} />
             </Routes>
           </Container>
         </main>
