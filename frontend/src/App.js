@@ -11,6 +11,7 @@ import HomeScreen from './screens/homeScreen';
 import ProductScreen from './screens/productScreen';
 import { Store } from './store';
 import CartScreen from './screens/cartScreen';
+import SigninScreen from './screens/singInScreen';
 
 function App() {
   const { state } = useContext(Store);
@@ -43,6 +44,7 @@ function App() {
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
+              <Route path="/signin" element={<SigninScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
