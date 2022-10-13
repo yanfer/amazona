@@ -14,5 +14,5 @@ const userSchema = new mongoose.Schema(
 );
 
 /* el model pide 2 parametros, 1 el nombre, 2 el esquema */
-const User = mongoose.model('User', productSchema);
+const User = mongoose.model('User', userSchema);
 export default User;
