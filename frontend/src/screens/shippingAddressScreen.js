@@ -18,8 +18,8 @@ export default function ShippingAddressScreen() {
 
   const [fullName, setFullName] = useState(shippingAddress.fullName || '');
   const [address, setAddress] = useState(shippingAddress.address || '');
-  const [secondAddress, setSecondAddress] = useState(
-    shippingAddress.secondAddress || ''
+  const [addressTwo, setaddressTwo] = useState(
+    shippingAddress.addressTwo || ''
   );
   const [city, setCity] = useState(shippingAddress.city || '');
   const [countryState, setCountyState] = useState(
@@ -43,7 +43,7 @@ export default function ShippingAddressScreen() {
       payload: {
         fullName,
         address,
-        secondAddress,
+        addressTwo,
         city,
         countryState,
         postalCode,
@@ -56,7 +56,7 @@ export default function ShippingAddressScreen() {
       JSON.stringify({
         fullName,
         address,
-        secondAddress,
+        addressTwo,
         city,
         countryState,
         postalCode,
@@ -94,8 +94,8 @@ export default function ShippingAddressScreen() {
           <Form.Group className="mb-3" controlId="fullName">
             <Form.Label>2nd Address Info</Form.Label>
             <Form.Control
-              value={secondAddress}
-              onChange={(e) => setSecondAddress(e.target.value)}
+              value={addressTwo}
+              onChange={(e) => setaddressTwo(e.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="fullName">
