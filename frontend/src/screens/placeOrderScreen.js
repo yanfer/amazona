@@ -1,21 +1,18 @@
-import axios from 'axios';
+import Axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { toast } from 'react-toastify';
+import { getError } from '../utils';
+import { Store } from '../store';
+import CheckoutSteps from '../components/checkoutSteps';
 import LoadingBox from '../components/loadingBox';
 
-import { Store } from '../store.js';
-import CheckoutSteps from '../components/checkoutSteps';
-import { getError } from '../utils';
-
-/* reducer es independiente del componente asi que se define fuera de la funcion */
 const reducer = (state, action) => {
   switch (action.type) {
     case 'CREATE_REQUEST':
@@ -31,6 +28,7 @@ const reducer = (state, action) => {
 
 export default function PlaceOrderScreen() {
   const navigate = useNavigate();
+
   const [{ loading }, dispatch] = useReducer(reducer, {
     loading: false,
   });
@@ -50,7 +48,7 @@ export default function PlaceOrderScreen() {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
 
-      const { data } = await axios.post(
+      const { data } = await Axios.post(
         '/api/orders',
         {
           orderItems: cart.cartItems,
@@ -98,8 +96,8 @@ export default function PlaceOrderScreen() {
               <Card.Text>
                 <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
                 <strong>Address: </strong> {cart.shippingAddress.address},
-                {cart.shippingAddress.addressTwo},{cart.shippingAddress.city},{' '}
-                {cart.shippingAddress.postalCode},{cart.shippingAddress.country}
+                {cart.shippingAddress.city}, {cart.shippingAddress.postalCode},
+                {cart.shippingAddress.country}
               </Card.Text>
               <Link to="/shipping">Edit</Link>
             </Card.Body>

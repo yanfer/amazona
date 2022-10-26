@@ -19,9 +19,7 @@ const orderSchema = new mongoose.Schema(
     shippingAddress: {
       fullName: { type: String, required: true },
       address: { type: String, required: true },
-      addressTwo: { type: String, required: false },
       city: { type: String, required: true },
-      countryState: { type: String, required: true },
       postalCode: { type: String, required: true },
       country: { type: String, required: true },
     },
@@ -43,11 +41,9 @@ const orderSchema = new mongoose.Schema(
     deliveredAt: { type: Date },
   },
   {
-    /* this is to add two more fiels, created time and updated time */
     timestamps: true,
   }
 );
 
-/* el model pide 2 parametros, 1 el nombre, 2 el esquema */
 const Order = mongoose.model('Order', orderSchema);
 export default Order;
