@@ -2,12 +2,14 @@ import Axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { toast } from 'react-toastify';
+
 import { getError } from '../utils';
 import { Store } from '../store';
 import CheckoutSteps from '../components/checkoutSteps';
@@ -96,8 +98,9 @@ export default function PlaceOrderScreen() {
               <Card.Text>
                 <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
                 <strong>Address: </strong> {cart.shippingAddress.address},
-                {cart.shippingAddress.city}, {cart.shippingAddress.postalCode},
-                {cart.shippingAddress.country}
+                {cart.shippingAddress.addressTwo},{cart.shippingAddress.city},
+                {cart.shippingAddress.countryState},
+                {cart.shippingAddress.postalCode},{cart.shippingAddress.country}
               </Card.Text>
               <Link to="/shipping">Edit</Link>
             </Card.Body>

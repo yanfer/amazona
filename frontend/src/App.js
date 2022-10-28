@@ -1,25 +1,25 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import { useContext } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Navbar from 'react-bootstrap/Navbar';
+import Badge from 'react-bootstrap/Badge';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Badge from 'react-bootstrap/Badge';
 import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
+import { useContext } from 'react';
 
 import HomeScreen from './screens/homeScreen';
 import ProductScreen from './screens/productScreen';
-import { Store } from './store';
 import CartScreen from './screens/cartScreen';
 import SigninScreen from './screens/singInScreen';
-import ShippingAddressScreen from './screens/shippingAddressScreen';
 import SignupScreen from './screens/singUpScreen';
-import PaymentMethodScreen from './screens/paymentMethodScreen';
 import PlaceOrderScreen from './screens/placeOrderScreen';
 import OrderScreen from './screens/orderScreen';
+import PaymentMethodScreen from './screens/paymentMethodScreen';
+import ShippingAddressScreen from './screens/shippingAddressScreen';
+import { Store } from './store';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);

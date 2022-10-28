@@ -55,11 +55,10 @@ export default function OrderScreen() {
     if (!userInfo) {
       return navigate('/login');
     }
-    if (order._id || (order._id && order._id !== orderId)) {
+    if (!order._id || (order._id && order._id !== orderId)) {
       fetchOrder();
     }
   }, [order, userInfo, orderId, navigate]);
-
   return loading ? (
     <LoadingBox></LoadingBox>
   ) : error ? (
@@ -69,29 +68,26 @@ export default function OrderScreen() {
       <Helmet>
         <title>Order {orderId}</title>
       </Helmet>
-      <h1 className="my-3">order{orderId}</h1>
+      <h1 className="my-3">Order {orderId}</h1>
       <Row>
         <Col md={8}>
           <Card className="mb-3">
             <Card.Body>
               <Card.Title>Shipping</Card.Title>
               <Card.Text>
-                <strong>Name: </strong> {order.shippingAddresss.fullName}
-                <br />
-                <strong>Address: </strong>
-                {order.shippingAddresss.address},
-                {order.shippingAddresss.addressTwo},{' '}
-                {order.shippingAddresss.city},
-                {order.shippingAddresss.countryState},{' '}
-                {order.shippingAddresss.postalCode},
-                {order.shippingAddresss.country}
+                <strong>Name:</strong> {order.shippingAddress.fullName} <br />
+                <strong>Address: </strong> {order.shippingAddress.address},
+                {order.shippingAddress.addressTwo},{order.shippingAddress.city},
+                {order.shippingAddress.countryState},
+                {order.shippingAddress.postalCode},
+                {order.shippingAddress.country}
               </Card.Text>
               {order.isDelivered ? (
                 <MessageBox variant="success">
                   Delivered at {order.deliveredAt}
                 </MessageBox>
               ) : (
-                <MessageBox variant="danger"> Not Delivered</MessageBox>
+                <MessageBox variant="danger">Not Delivered</MessageBox>
               )}
             </Card.Body>
           </Card>
@@ -99,7 +95,7 @@ export default function OrderScreen() {
             <Card.Body>
               <Card.Title>Payment</Card.Title>
               <Card.Text>
-                <strong>Method: </strong> {order.paymentMethod}
+                <strong>Method:</strong> {order.paymentMethod}
               </Card.Text>
               {order.isPaid ? (
                 <MessageBox variant="success">
@@ -110,6 +106,7 @@ export default function OrderScreen() {
               )}
             </Card.Body>
           </Card>
+
           <Card className="mb-3">
             <Card.Body>
               <Card.Title>Items</Card.Title>
@@ -128,9 +125,7 @@ export default function OrderScreen() {
                       <Col md={3}>
                         <span>{item.quantity}</span>
                       </Col>
-                      <Col md={3}>
-                        <Col md={3}>${item.price}</Col>
-                      </Col>
+                      <Col md={3}>${item.price}</Col>
                     </Row>
                   </ListGroup.Item>
                 ))}
@@ -146,7 +141,7 @@ export default function OrderScreen() {
                 <ListGroup.Item>
                   <Row>
                     <Col>Items</Col>
-                    <Col>${order.itemPrice.toFixed(2)}</Col>
+                    <Col>${order.itemsPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -163,8 +158,12 @@ export default function OrderScreen() {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                    <Col>Order Total</Col>
-                    <Col>${order.totalPrice.toFixed(2)}</Col>
+                    <Col>
+                      <strong> Order Total</strong>
+                    </Col>
+                    <Col>
+                      <strong>${order.totalPrice.toFixed(2)}</strong>
+                    </Col>
                   </Row>
                 </ListGroup.Item>
               </ListGroup>
