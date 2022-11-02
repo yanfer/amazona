@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
-    "start": "node backend/server.js"
+    "start": "node backend/server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d frontend/build"
   },
   "repository": {
     "type": "git",
@@ -17,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/yanfer/amazona/issues"
   },
-  "homepage": "https://github.com/yanfer/amazona#readme"
+  "homepage": "https://github.com/yanfer/amazona",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }
