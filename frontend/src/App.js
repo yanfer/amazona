@@ -58,11 +58,11 @@ function App() {
   return (
     <BrowserRouter>
       <div
-        className={
-          sidebarIsOpen
-            ? 'd-flex flex-column site-container active-cont'
-            : 'd-flex flex-column site-container'
-        }
+      //className={
+      // sidebarIsOpen
+      //</BrowserRouter> ? 'd-flex flex-column site-container active-cont'
+      // : 'd-flex flex-column site-container'
+      // }
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header>
@@ -141,8 +141,14 @@ function App() {
             ))}
           </Nav>
         </div>
-        <main>
-          <Container className="mt-3">
+        <main
+          className={
+            sidebarIsOpen
+              ? 'mt-3 d-flex flex-column site-container active-cont '
+              : 'mt-3 d-flex flex-column site-container'
+          }
+        >
+          <Container>
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
@@ -158,7 +164,13 @@ function App() {
             </Routes>
           </Container>
         </main>
-        <footer>
+        <footer
+          className={
+            sidebarIsOpen
+              ? 'active-cont site-transition  '
+              : 'd-flex flex-column site-container'
+          }
+        >
           <div className="text-center"> All rights reserved</div>
         </footer>
       </div>

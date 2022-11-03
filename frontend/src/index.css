@@ -76,17 +76,23 @@ main {
   height: 100%;
   position: absolute;
   left: -300px;
-  background-color: #1a1a1a;
+  /* background-color: rgb(33, 37, 41); */
+  background-color: rgb(48, 51, 54);
   transition: 0.5s;
 }
-.site-container {
+.site-transition {
   transition: 0.4s;
 }
 .active-cont {
   margin-left: 240px;
+  transition: 0.5s;
 }
 .active-nav {
   left: 0;
+  transition: 0.5s;
+}
+.card {
+  position: static;
 }
 
 .logo {
