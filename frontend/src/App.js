@@ -118,61 +118,63 @@ function App() {
             </Container>
           </Navbar>
         </header>
-        <div
-          className={
-            sidebarIsOpen
-              ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
-              : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
-          }
-        >
-          <Nav className="flex-column text-white w-100 p-2">
-            <Nav.Item>
-              <strong>Categories</strong>
-            </Nav.Item>
-            {categories.map((category) => (
-              <Nav.Item key={category}>
-                <LinkContainer
-                  to={`/search?category=${category}`}
-                  onClick={() => setSidebarIsOpen(false)}
-                >
-                  <Nav.Link>{category}</Nav.Link>
-                </LinkContainer>
+        <div>
+          <div
+            className={
+              sidebarIsOpen
+                ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
+                : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
+            }
+          >
+            <Nav className="flex-column text-white w-100 p-2">
+              <Nav.Item>
+                <strong>Categories</strong>
               </Nav.Item>
-            ))}
-          </Nav>
+              {categories.map((category) => (
+                <Nav.Item key={category}>
+                  <LinkContainer
+                    to={`/search?category=${category}`}
+                    onClick={() => setSidebarIsOpen(false)}
+                  >
+                    <Nav.Link>{category}</Nav.Link>
+                  </LinkContainer>
+                </Nav.Item>
+              ))}
+            </Nav>
+          </div>
+          <main
+            className={
+              sidebarIsOpen
+                ? ' d-flex flex-column site-container site-transition active-cont '
+                : 'd-flex flex-column site-transition'
+            }
+          >
+            <Container>
+              <Routes>
+                <Route path="/product/:slug" element={<ProductScreen />} />
+                <Route path="/cart" element={<CartScreen />} />
+                <Route path="/signin" element={<SigninScreen />} />
+                <Route path="/signup" element={<SignupScreen />} />
+                <Route path="/profile" element={<ProfileScreen />} />
+                <Route path="/shipping" element={<ShippingAddressScreen />} />
+                <Route path="/payment" element={<PaymentMethodScreen />} />
+                <Route path="/placeorder" element={<PlaceOrderScreen />} />
+                <Route path="/order/:id" element={<OrderScreen />} />
+                <Route path="/orderhistory" element={<OrderHistoryScreen />} />
+                <Route path="/" element={<HomeScreen />} />
+              </Routes>
+            </Container>
+          </main>
+          <footer
+            className={
+              sidebarIsOpen
+                ? 'd-flex flex-column active-cont site-transition '
+                : 'd-flex flex-column site-transition '
+            }
+          >
+            <div className="text-center"> All rights reserved</div>
+          </footer>
         </div>
-        <main
-          className={
-            sidebarIsOpen
-              ? 'mt-3 d-flex flex-column site-container active-cont '
-              : 'mt-3 d-flex flex-column site-container'
-          }
-        >
-          <Container>
-            <Routes>
-              <Route path="/product/:slug" element={<ProductScreen />} />
-              <Route path="/cart" element={<CartScreen />} />
-              <Route path="/signin" element={<SigninScreen />} />
-              <Route path="/signup" element={<SignupScreen />} />
-              <Route path="/profile" element={<ProfileScreen />} />
-              <Route path="/shipping" element={<ShippingAddressScreen />} />
-              <Route path="/payment" element={<PaymentMethodScreen />} />
-              <Route path="/placeorder" element={<PlaceOrderScreen />} />
-              <Route path="/order/:id" element={<OrderScreen />} />
-              <Route path="/orderhistory" element={<OrderHistoryScreen />} />
-              <Route path="/" element={<HomeScreen />} />
-            </Routes>
-          </Container>
-        </main>
-        <footer
-          className={
-            sidebarIsOpen
-              ? 'active-cont site-transition  '
-              : 'd-flex flex-column site-container'
-          }
-        >
-          <div className="text-center"> All rights reserved</div>
-        </footer>
       </div>
     </BrowserRouter>
   );
