@@ -9,11 +9,13 @@ body {
 }
 
 .site-container {
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 main {
   flex: 1;
+  min-height: 90vh;
+  position: relative;
 }
 
 .btn-primary,
@@ -103,5 +105,18 @@ main {
 }
 
 .foot {
-  min-height: 10vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  justify-content: center;
+}
+.foot2 {
+  width: 90%;
+  position: absolute;
+  bottom: 0;
+  justify-content: center;
+}
+
+.text-bold {
+  font-weight: bold;
 }

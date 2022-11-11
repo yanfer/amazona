@@ -27,6 +27,7 @@ import { getError } from './utils';
 import { Store } from './store';
 import SearchBox from './components/searchBox';
 import amazona from './amazonWhiteLogo.png';
+import SearchScreen from './screens/searchScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -153,6 +154,7 @@ function App() {
               <Routes>
                 <Route path="/product/:slug" element={<ProductScreen />} />
                 <Route path="/cart" element={<CartScreen />} />
+                <Route path="/search" element={<SearchScreen />} />
                 <Route path="/signin" element={<SigninScreen />} />
                 <Route path="/signup" element={<SignupScreen />} />
                 <Route path="/profile" element={<ProfileScreen />} />
@@ -164,16 +166,16 @@ function App() {
                 <Route path="/" element={<HomeScreen />} />
               </Routes>
             </Container>
+            <div
+              className={
+                sidebarIsOpen
+                  ? ' site-transition foot2'
+                  : ' site-transition  foot'
+              }
+            >
+              <div className="text-center"> All rights reserved</div>
+            </div>
           </main>
-          <footer
-            className={
-              sidebarIsOpen
-                ? 'd-flex flex-column active-cont site-transition '
-                : 'd-flex flex-column site-transition '
-            }
-          >
-            <div className="text-center"> All rights reserved</div>
-          </footer>
         </div>
       </div>
     </BrowserRouter>
