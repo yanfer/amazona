@@ -48,6 +48,12 @@ main {
   padding: 1rem;
 }
 
+.black-square {
+  height: auto;
+  width: 50px;
+  color: rgb(48, 51, 54);
+}
+
 .img-large {
   max-width: 100%;
 }
@@ -69,8 +75,9 @@ main {
   color: #f08000;
 }
 
+/* THIS IS THE STYLE AREA OF THE NEW FEATURE */
 /* sidebar */
-.navbar-brand {
+/* .navbar-brand {
   font-weight: bold;
   margin-right: 9px;
 }
@@ -79,7 +86,6 @@ main {
   height: 100%;
   position: absolute;
   left: -300px;
-  /* background-color: rgb(33, 37, 41); */
   background-color: rgb(48, 51, 54);
   transition: 0.5s;
 }
@@ -93,7 +99,8 @@ main {
 .active-nav {
   left: 0;
   transition: 0.5s;
-}
+} */
+
 .card {
   position: static;
 }

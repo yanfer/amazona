@@ -41,6 +41,7 @@ function App() {
     window.location.href = '/signin';
   };
 
+  /* THIS IS A PART OF SOME NEW FEATURES I'M STILL ADDING BUT WEREN'T PLANED MAIN PROYECT */
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
 
@@ -58,23 +59,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div
-      //className={
-      // sidebarIsOpen
-      //</BrowserRouter> ? 'd-flex flex-column site-container active-cont'
-      // : 'd-flex flex-column site-container'
-      // }
-      >
+      <div>
         <ToastContainer position="bottom-center" limit={1} />
         <header>
           <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
-              <Button
+              <div className="black-square"></div>
+              {/* <Button
                 variant="dark"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
                 <i className="fas fa-bars"></i>
-              </Button>
+              </Button> */}
               <LinkContainer to="/">
                 <Navbar.Brand>
                   <img src={`${amazona}`} alt="amazon" className="logo"></img>
@@ -120,6 +116,7 @@ function App() {
           </Navbar>
         </header>
         <div>
+          {/* THIS PART ISN'T COMPLETED YET, IT'S SOMETHING STILL WORKING ON IT
           <div
             className={
               sidebarIsOpen
@@ -142,7 +139,7 @@ function App() {
                 </Nav.Item>
               ))}
             </Nav>
-          </div>
+          </div> */}
           <main
             className={
               sidebarIsOpen
